@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content">
+<RelativeLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="100dp"
+        android:id="@+id/rname"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_below="@id/rname"
+        android:layout_marginTop="40dp"
+        android:id="@+id/raddress"
+        android:height="100dp"
+        android:backgroundTint="#ddd9d9"
+        android:gravity="center" />
+
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="100dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/retime"
+        android:gravity="center|center_horizontal|right" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="100dp"
+        android:layout_below="@id/retime"
+        android:layout_alignParentRight="true"
+        android:id="@+id/rltime"
+        android:gravity="right|center_horizontal" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_below="@id/raddress"
+        android:layout_marginTop="16dp"
+        android:id="@+id/rnote"
+        android:height="100dp"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Early Time:"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/retime"
+        android:layout_toStartOf="@+id/retime" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Late Time:"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/retime"
+        android:layout_toLeftOf="@+id/retime"
+        android:layout_toStartOf="@+id/retime" />
+
+</RelativeLayout>
+</ScrollView>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:key="key_db_login"
+        android:title="Server Settings">
+
+        <EditTextPreference
+            android:defaultValue="qc"
+            android:key="user_id"
+            android:summary="First/Last Initials"
+            android:title="User ID:" />
+        <EditTextPreference
+            android:defaultValue="0.0.0.0:0000"
+            android:key="server_address"
+            android:summary="Hostname:port"
+            android:title="Server Address" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="Authorization Credentials">
+        <EditTextPreference
+            android:key="doorCode"
+            android:summary=""
+            android:title="Authentication Code" />
+    </PreferenceCategory>
+</PreferenceScreen>

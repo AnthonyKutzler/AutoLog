@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content">
+
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <Spinner
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/stopspinner"/>
+
+        <Button
+            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/info"
+            android:id="@+id/minfo"/>
+
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_centerInParent="false"
+            android:id="@+id/timeLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/minfo">
+
+
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="wrap_content"
+                android:text="Name"
+
+                android:id="@+id/namename"
+                android:height="45dp"
+                android:visibility="gone"/>
+
+
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="wrap_content"
+                android:text="@string/hot"
+                android:layout_below="@id/namename"
+                android:height="45dp"
+                android:gravity="center_vertical"
+                android:id="@+id/rteViewTextView2"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="wrap_content"
+                android:text="@string/cold"
+                android:layout_below="@id/rteViewTextView2"
+                android:height="45dp"
+                android:gravity="center_vertical"/>
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:ems="10"
+                android:layout_alignParentRight="true"
+                android:id="@+id/name"
+                android:visibility="gone"/>
+
+
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_width="wrap_content"
+                android:ems="10"
+                android:layout_below="@id/name"
+                android:layout_alignParentRight="true"
+                android:id="@+id/hot"/>
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_width="wrap_content"
+                android:ems="10"
+                android:layout_below="@id/hot"
+                android:layout_alignParentRight="true"
+                android:id="@+id/cold"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:text="@string/foodtemps"
+            android:gravity="center_horizontal"
+            android:layout_below="@id/timeLayout"
+            android:id="@+id/foodtemp_name"/>
+
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="false"
+            android:layout_below="@id/foodtemp_name"
+            android:id="@+id/tempsLayout">
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:ems="10"
+                android:layout_alignParentRight="true"
+                android:id="@+id/protemp"
+                android:inputType="number"/>
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:ems="10"
+                android:layout_below="@id/protemp"
+                android:layout_alignParentRight="true"
+                android:id="@+id/startemp"
+                android:inputType="number"/>
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:ems="10"
+                android:layout_below="@id/startemp"
+                android:layout_alignParentRight="true"
+                android:id="@+id/vegtemp"
+                android:inputType="number"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="wrap_content"
+                android:text="@string/protien"
+                android:height="45dp"
+                android:gravity="center_vertical"
+                android:id="@+id/rteViewTextView3"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="wrap_content"
+                android:text="@string/starch"
+                android:layout_below="@id/rteViewTextView3"
+                android:height="45dp"
+                android:gravity="center_vertical"
+                android:id="@+id/rteViewTextView4"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="wrap_content"
+                android:text="@string/veggie"
+                android:layout_below="@id/rteViewTextView4"
+                android:height="45dp"
+                android:gravity="center_vertical"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_below="@id/tempsLayout"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/log">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="wrap_content"
+                android:text="Notes"
+                android:layout_alignParentTop="true"
+                android:id="@+id/rteinfoTextView1"/>
+
+
+
+            <Button
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/save"
+
+                android:layout_alignParentRight="true"
+                android:id="@+id/save"/>
+
+            <Button
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/view_log"
+
+                android:id="@+id/view_log"/>
+
+        </RelativeLayout>
+
+        <ListView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/log"
+            android:id="@+id/lstvw"/>
+
+    </RelativeLayout>
+
+</ScrollView>
+

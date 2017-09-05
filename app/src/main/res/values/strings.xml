@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">QCRouteLog</string>
+    <string name="info">More Info</string>
+    <string name="time">Time</string>
+    <string name="hot">Oven</string>
+    <string name="cold">Cooler</string>
+    <string name="foodtemps">Food Temps</string>
+    <string name="protien">Protien</string>
+    <string name="starch">Starch</string>
+    <string name="veggie">Veggie</string>
+    <string name="save">Save</string>
+    <string name="view_log">View Log</string>
+    <string name="rtelist">Route List</string>
+    <string name="tmplog">Temp Log</string>
+    <string name="pref_db_read">Oven</string>
+    <string name="use_db_save">Cooler</string>
+    <string name="use_db_sum">Food Temps</string>
+    <string name="db_name">Protien</string>
+    <string name="db_name_sum">Starch</string>
+    <string name="db_colum">Veggie</string>
+    <string name="db_colum_sum">Save</string>
+    <string name="db_write">View Log</string>
+    <string name="db_write_sum">Route List</string>
+    <string name="file_upload">Protien</string>
+    <string name="file_upload_sum">Starch</string>
+    <string name="file_use">Veggie</string>
+    <string name="file_use_sum">Save</string>
+    <string name="file_path">View Log</string>
+    <string name="file_path_sum">Route List</string>
+    <string name="title_activity_stop_edit_select">StopEditSelect</string>
+    <string name="title_activity_view_info">ViewInfo</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_display_rte">DisplayRTE</string>
+    <string name="title_activity_kitchen_list">KitchenListActivity</string>
+</resources>
