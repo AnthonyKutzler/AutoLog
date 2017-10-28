@@ -1,5 +1,6 @@
 package com.ghostlystudios.autolog.Views;
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -16,6 +17,8 @@ import com.android.volley.toolbox.Volley;
 import com.ghostlystudios.autolog.Controllers.LoginRequests;
 import com.ghostlystudios.autolog.Controllers.VolleyRestController;
 import com.ghostlystudios.autolog.R;
+import com.ghostlystudios.autolog.Services.LoggingServices;
+import com.google.android.gms.location.LocationServices;
 
 //TODO: ADD Token Authentication to RestService and Client
 public class Login extends AppCompatActivity implements OnClickListener
@@ -47,6 +50,12 @@ public class Login extends AppCompatActivity implements OnClickListener
         requestQueue = Volley.newRequestQueue(this);
     }
     @Override
+    protected void onPause(){
+        super.onPause();
+        finish();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.mainmenu, menu);
         return true;
@@ -66,8 +75,7 @@ public class Login extends AppCompatActivity implements OnClickListener
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnlogin:
-                // DB isn't setup display toast error
-                    grabRoute();
+                grabRoute();
                 break;
         }
     }

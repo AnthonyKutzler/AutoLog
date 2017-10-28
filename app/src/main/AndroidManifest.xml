@@ -25,8 +25,9 @@
 
         <activity
             android:name=".Views.Login"
-            android:label="QC Route Helper"
-            android:screenOrientation="portrait">
+            android:label="Route Helper"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,12 +40,13 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Views.KitchenListActivity"
-            android:label="Kitchen List"
+            android:label="Stop List"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".Views.BuildRouteLog"
             android:label="Route Time Log"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
         <service
             android:name=".Services.GeofencingServices"
             android:enabled="true"

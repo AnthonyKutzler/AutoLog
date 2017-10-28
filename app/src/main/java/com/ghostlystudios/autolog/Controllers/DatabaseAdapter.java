@@ -64,14 +64,12 @@ public class DatabaseAdapter {
 
     //Reset Kitchen SQL
     void resetKitchen(){
-        //TODO: Make sure it works-Both
         database = databaseModel.getWritable();
         database.execSQL(DatabaseFinals.DROP_CUSTOMERS);
         database.execSQL(DatabaseFinals.CREATE_CUSTOMER_QUERY);
     }
     //Reset TempLogs SQL
-    void resetLogs(){
-        //TODO: Possible problems
+    public void resetLogs(){
         database = databaseModel.getWritable();
         database.execSQL(DatabaseFinals.DROP_LOGS);
         database.execSQL(DatabaseFinals.CREATE_LOGS_QUERY);

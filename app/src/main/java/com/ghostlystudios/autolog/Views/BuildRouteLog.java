@@ -1,12 +1,18 @@
 package com.ghostlystudios.autolog.Views;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -16,6 +22,7 @@ import com.ghostlystudios.autolog.Controllers.TempLogRequests;
 import com.ghostlystudios.autolog.Controllers.VolleyRestController;
 import com.ghostlystudios.autolog.Models.TempLog;
 import com.ghostlystudios.autolog.R;
+import com.ghostlystudios.autolog.Views.Finals.IntentFinals;
 
 import java.util.List;
 
@@ -74,10 +81,35 @@ public class BuildRouteLog extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem i) {
-        uploadTempLogs();
+        AlertDialog dialog = buildDialog();
+        dialog.show();
+        //TODO: Setup Rest API to accept JSON below
+        //uploadTempLogs();
         return super.onOptionsItemSelected(i);
     }
     private void uploadTempLogs(){
         VolleyRestController.getInstance(this).addToRequestQueue(new TempLogRequests(this).setLogs(database.getTempLogsMap()));
+    }
+
+    private AlertDialog buildDialog() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are You Sure?").setTitle("Confirmation?")
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                }).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                positiveDelete();
+            }
+        });
+        return builder.create();
+    }
+
+    private void positiveDelete(){
+        new DatabaseAdapter(this).resetLogs();
+        this.recreate();
     }
 }

@@ -81,4 +81,8 @@ public class LoggingServices extends IntentService {
         }
         wakeLock.release();
     }
+
+    private Notification.InboxStyle resetInboxStyle(){
+        return new Notification.InboxStyle().setBigContentTitle("Recent Time Logs");
+    }
 }

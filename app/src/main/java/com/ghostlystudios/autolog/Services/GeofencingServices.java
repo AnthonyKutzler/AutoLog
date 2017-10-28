@@ -5,24 +5,17 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.ghostlystudios.autolog.Controllers.DatabaseAdapter;
-import com.ghostlystudios.autolog.Models.FallbackLocationTracker;
 import com.ghostlystudios.autolog.Models.Finals.Globals;
-import com.ghostlystudios.autolog.Models.ProviderLocationTracker;
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingClient;
 import com.google.android.gms.location.GeofencingRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
 import java.util.List;
-import java.util.concurrent.Executor;
 
 
 /**
@@ -30,28 +23,10 @@ import java.util.concurrent.Executor;
  */
 
 public class GeofencingServices extends IntentService implements OnCompleteListener{
-    //Thread/Runnable Objects
-    //private Runnable handlerTask;
-    //private Handler handler;
-    //Data Objects
-    //private DatabaseAdapter databaseAdapter;
 
     private int routeNumber;
-    //Notification Objects
-    /*Notification.Builder notification;
-    Notification.InboxStyle inboxStyle;
-    NotificationManager notificationManager;
-    Intent logIntent;
-    PendingIntent pendingIntent;
-    private Map<Double, Kitchen> map;
-*/  Intent loggingIntent;
-    //private PendingIntent geofencingRequestIntent;
-    private GeofencingClient geofencingClient;
+    Intent loggingIntent;
     private List<Geofence> geofences;
-    //GPS Listener
-    //CordinateManager cordinateManager;
-    //TODO: Replace Cordinate Manager with below
-    FallbackLocationTracker locationTracker;
 
     public GeofencingServices(){
         super("loggingService");
@@ -63,14 +38,13 @@ public class GeofencingServices extends IntentService implements OnCompleteListe
      */
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
-        locationTracker = new FallbackLocationTracker(this, ProviderLocationTracker.ProviderType.GPS);
         if(intent != null)
             routeNumber = intent.getIntExtra(Globals.ROUTENUMBER, 0);
         else
             routeNumber = 0;
         DatabaseAdapter databaseAdapter = new DatabaseAdapter(this);
         geofences = databaseAdapter.getKitchenFence(routeNumber);
-        geofencingClient = LocationServices.getGeofencingClient(this);
+        GeofencingClient geofencingClient = LocationServices.getGeofencingClient(this);
         geofencingClient.addGeofences(getGeofencingRequest(), getPendingIntent())
                 .addOnCompleteListener(this);
 
@@ -126,8 +100,8 @@ public class GeofencingServices extends IntentService implements OnCompleteListe
 
     @Override
     public void onDestroy(){
-        geofencingClient.removeGeofences(getPendingIntent()).addOnCompleteListener(this);
-        stopService(loggingIntent);
+        //geofencingClient.removeGeofences(getPendingIntent()).addOnCompleteListener(this);
+        //stopService(loggingIntent);
     }
 
     private GeofencingRequest getGeofencingRequest(){
@@ -137,7 +111,7 @@ public class GeofencingServices extends IntentService implements OnCompleteListe
                 .build();
     }
 
-    private PendingIntent getPendingIntent(){
+    PendingIntent getPendingIntent(){
 
         loggingIntent = new Intent(this, LoggingServices.class).putExtra(Globals.ROUTENUMBER, routeNumber);
         return PendingIntent.getService(this, 0, loggingIntent,

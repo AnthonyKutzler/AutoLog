@@ -198,25 +198,6 @@ public class LoginRequests extends Application {
         databaseAdapter.resetKitchen();
         for (Kitchen kitchen : kitchens) {
             databaseAdapter.addRow(DatabaseFinals.CUSTOMER_TABLE, kitchen.getContentValues());
-            //JSONObject obj = jsonArray.getJSONObject(z);
-            //Kitchen kitchenInfo = new Kitchen();
-            //g s o n?
-            /*for(String field : DatabaseFinals.CUSTOMER_COLUMNS){
-                       //2 5   double 6 7
-                       if(field.equals("id")){}
-                       else if(field.equals(DatabaseFinals.CUSTOMER_COLUMNS[2]) || field.equals(
-                               DatabaseFinals.CUSTOMER_COLUMNS[5])){
-                           kitchen.put(field, obj.getInt(field));
-                       }else if(field.equals(DatabaseFinals.CUSTOMER_COLUMNS[6]) || field.equals(
-                               DatabaseFinals.CUSTOMER_COLUMNS[7])){
-                           kitchen.put(field, obj.getDouble(field));
-                       }else {
-                           kitchen.put(field, obj.getString(field));
-                       }
-                   }
-                }catch (Exception e){}*/
-
-            //kitchens.add(kitchen);
         }
     }
 
@@ -238,6 +219,7 @@ public class LoginRequests extends Application {
             public void onClick(DialogInterface dialog, int which) {
                 context.startActivity(new Intent(context, KitchenListActivity.class).putExtra(
                         IntentFinals.ROUTE_NUMBER, Integer.parseInt(input.getText().toString())));
+
             }
         });
         return builder.create();
